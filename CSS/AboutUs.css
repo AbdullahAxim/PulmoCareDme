@@ -1,0 +1,133 @@
+
+
+/* === About Section === */
+.about-section {
+  background-color: #F4F4F4;
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.about-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  color: #8B1A1A;
+  margin: 0 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.line {
+  height: 2px;
+  background-color: #8B1A1A;
+  flex: 1;
+  max-width: 200px;
+  opacity: 0;
+}
+
+.left-line {
+  animation: growLineLeft 1s ease-out forwards;
+}
+
+.right-line {
+  animation: growLineRight 1s ease-out forwards;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-image {
+  flex: 1 1 40%;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 130%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.about-content {
+  flex: 1 1 50%;
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.about-content strong {
+  color: #8B1A1A;
+}
+
+.about-content .quote {
+  font-style: italic;
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* === Animations === */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes growLineLeft {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes growLineRight {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+.about-section .about-heading {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.about-section.active .about-heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-section.active .left-line,
+.about-section.active .right-line {
+  animation-play-state: running;
+}
+
+.left-line,
+.right-line {
+  animation-play-state: paused;
+}

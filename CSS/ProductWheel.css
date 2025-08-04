@@ -1,0 +1,414 @@
+
+
+/* === Product Carousel Styling === */
+.products-section {
+  overflow-x: hidden;
+  position: relative;
+  background-color: #ECE1D1;
+}
+.product-carousel {
+   background-color: #F4F4F4;
+  --items: 6;
+  --carousel-duration: 30s;
+  --carousel-width: min(90vw, 1200px);
+  --carousel-item-width: 260px;
+  --carousel-item-height: 430px;
+  --carousel-item-gap: 2rem;
+  --clr-accent: #A02020;
+  --clr-text: #8B1A1A;
+  --clr-bg: #ECE1D1;
+
+  position: relative;
+  width: var(--carousel-width);
+  height: calc(var(--carousel-item-height) + 50px);
+  margin: 2rem auto;
+  overflow: clip;
+  display: flex;
+  align-items: center;
+  gap: var(--carousel-item-gap);
+    border-left: 4px solid #8B1A1A;
+  border-right: 4px solid #8B1A1A;
+  border-top: none;
+  border-bottom: none;
+  /* border: 4px solid #8B1A1A; /* Use your site's red or any theme color */
+  border-radius: 12px;
+  padding: 1rem; /* Optional: space inside border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.664); /* Optional: soft shadow for depth */
+}
+
+ /*.product-carousel[mask] {
+  mask-image: linear-gradient(to right, transparent, rgb(0, 0, 0) 10% 90%, transparent);
+} */
+
+.product-carousel[reverse] > .product-card {
+  animation-direction: reverse;
+}
+
+.product-carousel:hover > .product-card {
+  animation-play-state: paused;
+}
+
+/* === Product Card Animation === */
+.product-card {
+  position: absolute;
+  top: 5%;
+  left: calc(100% + var(--carousel-item-gap));
+  width: var(--carousel-item-width);
+  height: var(--carousel-item-height);
+  display: grid;
+  grid-template-rows: 200px auto 1fr auto;
+  gap: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  padding-bottom: 1rem;
+  animation-name: product-marquee;
+  animation-duration: var(--carousel-duration);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+  box-shadow: 3px 3px 7px black;
+    border-left: none;
+  border-right: none;
+  border-top: 4px solid #8B1A1A;
+  border-bottom: 4px solid #8B1A1A;
+  transition: background 4s ease-in-out;
+}
+
+.product-card:nth-child(1) { --i: 0; animation-delay: calc(var(--carousel-duration) / var(--items) * 0 * -1); }
+.product-card:nth-child(2) { --i: 1; animation-delay: calc(var(--carousel-duration) / var(--items) * 1 * -1); }
+.product-card:nth-child(3) { --i: 2; animation-delay: calc(var(--carousel-duration) / var(--items) * 2 * -1); }
+.product-card:nth-child(4) { --i: 3; animation-delay: calc(var(--carousel-duration) / var(--items) * 3 * -1); }
+.product-card:nth-child(5) { --i: 4; animation-delay: calc(var(--carousel-duration) / var(--items) * 4 * -1); }
+.product-card:nth-child(6) { --i: 5; animation-delay: calc(var(--carousel-duration) / var(--items) * 5 * -1); }
+.product-card:nth-child(7) { --i: 6; animation-delay: calc(var(--carousel-duration) / var(--items) * 6 * -1); }
+.product-card:nth-child(8) { --i: 7; animation-delay: calc(var(--carousel-duration) / var(--items) * 7 * -1); }
+
+@keyframes product-marquee {
+  100% {
+    transform: translateX(calc((var(--items) * (var(--carousel-item-width) + var(--carousel-item-gap))) * -1));
+  }
+}
+/* === Product section Heading === */
+.products-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
+.products-title {
+  font-size: 2.5rem;
+  color: #8B1A1A;
+  margin: 0 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.products-heading .left-line,
+.products-heading .right-line {
+  height: 2px;
+  background-color: #8B1A1A;
+  flex: 1;
+  max-width: 200px;
+  opacity: 0;
+  animation: growLineLeft 1s ease-out forwards;
+}
+
+.products-heading .right-line {
+  animation: growLineRight 1s ease-out forwards;
+}
+
+
+/* === Product Card Content === */
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  filter: drop-shadow(1px 6px 8px rgb(0, 0, 0));
+}
+
+.product-card > *:not(img) {
+  padding: 0 1rem;
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  color: var(--clr-text);
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  color: #333;
+  margin: 0.25rem 0;
+}
+
+.product-card .view-more {
+  align-self: start;
+  justify-self: start;
+  background-color: #8B1A1A; /* Dark red */
+  color: whitesmoke;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* floating effect */
+}
+
+/* Hover state */
+.product-card .view-more:hover {
+  transition: background 0.8s ease-in-out, color 0.8s ease-in-out;
+  color: whitesmoke;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+/* === Hover Effect === */
+.product-card:hover {
+  background: linear-gradient(135deg, #8B1A1A 0%, #a83232 50%, #f18d8d 100%);
+  color: whitesmoke;
+}
+
+/* Nested text also turns whitesmoke */
+.product-card:hover * {
+  color: whitesmoke !important;
+}
+/* === Navigation Buttons === */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: var(--clr-text);
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.25rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-btn:hover {
+  opacity: 1;
+  background-color: var(--clr-accent);
+}
+
+.top-btn.left-btn {
+  left: -2rem;
+}
+
+.top-btn.right-btn {
+  right: -2rem;
+}
+
+.bottom-btn.left-btn {
+  left: -2rem;
+}
+
+.bottom-btn.right-btn {
+  right: -2rem;
+}
+/* === product page CSS === */
+.menu-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Card styling */
+.menu-card {
+  background-color: #ECE1D1;
+  border: 2px solid #8B1A1A;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+/* View More Button */
+.view-more-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1px solid #A02020;
+  color: #A02020;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.view-more-btn:hover {
+  background-color: #A02020;
+  color: white;
+}
+
+/* Overlay background blur */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Detailed Card */
+.card-details {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 400px;
+  padding: 2rem;
+  background-color: #fff;
+  color: #333;
+  border-radius: 12px;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Show states */
+.menu-card.active .card-details {
+  display: block;
+}
+
+.menu-card.active ~ .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Close Button */
+.close-btn {
+  margin-top: 1rem;
+  background-color: #A02020;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* === Menu Section (Card Layout) === */
+
+.menu-section {
+  background-color: #F4F4F4;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.menu-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.menu-title {
+  font-size: 2.5rem;
+  color: #8B1A1A;
+  margin: 0 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.menu-heading .line {
+  height: 2px;
+  background-color: #8B1A1A;
+  flex: 1;
+  max-width: 200px;
+}
+
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu-card {
+  background-color: #ECE1D1;
+  border: 2px solid #8B1A1A;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.menu-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.menu-card h3 {
+  font-size: 1.3rem;
+  color: #8B1A1A;
+  margin: 1rem 1rem 0.5rem;
+}
+
+.menu-card p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0 1rem 1rem;
+  line-height: 1.5;
+}
+.product-view-button {
+  display: block;
+  margin: 2rem auto;
+  padding: 12px 28px;
+  background-color: #C62828; /* Red from your site theme */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.product-view-button:hover {
+  background-color: #B71C1C; /* Darker red on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 600px) {
+  .product-view-button {
+    width: 80%;
+    font-size: 0.95rem;
+  }
+}
