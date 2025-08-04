@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PulmoCare DME</title>
+  
+  <!-- CSS linking Files -->
+  
+  <link rel="stylesheet" href="/CSS/Hero.css" />
+  <link rel="stylesheet" href="/CSS/Navigation.css" />
+  <link rel="stylesheet" href="/CSS/AboutUs.css" />
+  <link rel="stylesheet" href="/CSS/OurPillars.css" />  
+  <link rel="stylesheet" href="/CSS/OurServices.css" />  
+  <link rel="stylesheet" href="/CSS/ProductWheel.css" />  
+  <link rel="stylesheet" href="/CSS/FindUs.css" />  
+  <link rel="stylesheet" href="/CSS/ContactUs.css" />  
+  <link rel="stylesheet" href="index.css" /> 
+  <link rel="stylesheet" href="CSS/survey.css" /> 
+
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-left">
+      <img src="assets/logo.png" alt="PulmoCare Logo" class="logo-img">
+    </div>
+    <nav class="navbar-center">
+      <ul class="nav-links">
+        <li><a href="index.html#HeroSection">Home</a></li>
+        <li><a href="index.html#AboutSection">About</a></li>
+        <li><a href="index.html#ServiceSection">Services</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="index.html#ContactSection">Contact Us</a></li>
+        <li><a href="Survey.html">Survey Form</a></li>
+        <li><a href="index.html#FindUs">Find Us</a></li>
+      </ul>
+    </nav>
+    <div class="navbar-right">
+      <label class="switch">
+        <input type="checkbox" id="modeToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </header>
+
+  <div class="survey-container">
+    <h1 class="survey-heading">Give Us Your Feedback</h1>
+    <form id="surveyForm">
+      
+      <!-- First Name -->
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" placeholder="Enter your name" required>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="form-group">
+        <label>1. Patient service experience</label>
+        <div class="radio-group">
+          <label><input type="radio" name="serviceExperience" value="Well below average" required><span class="check"></span>Well below average</label>
+          <label><input type="radio" name="serviceExperience" value="Below average"><span class="check"></span>Below average</label>
+          <label><input type="radio" name="serviceExperience" value="Average"><span class="check"></span>Average</label>
+          <label><input type="radio" name="serviceExperience" value="Above average"><span class="check"></span>Above average</label>
+          <label><input type="radio" name="serviceExperience" value="Well above average"><span class="check"></span>Well above average</label>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="form-group">
+        <label>2. On-time delivery of service</label>
+        <div class="radio-group">
+          <label><input type="radio" name="onTimeDelivery" value="Well below average" required><span class="check"></span>Well below average</label>
+          <label><input type="radio" name="onTimeDelivery" value="Below average"><span class="check"></span>Below average</label>
+          <label><input type="radio" name="onTimeDelivery" value="Average"><span class="check"></span>Average</label>
+          <label><input type="radio" name="onTimeDelivery" value="Above average"><span class="check"></span>Above average</label>
+          <label><input type="radio" name="onTimeDelivery" value="Well above average"><span class="check"></span>Well above average</label>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="form-group">
+        <label>3. Professionalism</label>
+        <div class="radio-group">
+          <label><input type="radio" name="professionalism" value="Well below average" required><span class="check"></span>Well below average</label>
+          <label><input type="radio" name="professionalism" value="Below average"><span class="check"></span>Below average</label>
+          <label><input type="radio" name="professionalism" value="Average"><span class="check"></span>Average</label>
+          <label><input type="radio" name="professionalism" value="Above average"><span class="check"></span>Above average</label>
+          <label><input type="radio" name="professionalism" value="Well above average"><span class="check"></span>Well above average</label>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="form-group">
+        <label>4. Quality of service</label>
+        <div class="radio-group">
+          <label><input type="radio" name="quality_of_service" value="Well below average" required><span class="check"></span>Well below average</label>
+          <label><input type="radio" name="quality_of_service" value="Below average"><span class="check"></span>Below average</label>
+          <label><input type="radio" name="quality_of_service" value="Average"><span class="check"></span>Average</label>
+          <label><input type="radio" name="quality_of_service" value="Above average"><span class="check"></span>Above average</label>
+          <label><input type="radio" name="quality_of_service" value="Well above average"><span class="check"></span>Well above average</label>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="form-group">
+        <label>5. How do we rate in comparison to other home medical equipment companies that offer the same or similar services?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comparison_rating" value="Much higher" required><span class="check"></span>Much higher</label>
+          <label><input type="radio" name="comparison_rating" value="Somewhat higher"><span class="check"></span>Somewhat higher</label>
+          <label><input type="radio" name="comparison_rating" value="Same"><span class="check"></span>Same</label>
+          <label><input type="radio" name="comparison_rating" value="Somewhat lower"><span class="check"></span>Somewhat lower</label>
+          <label><input type="radio" name="comparison_rating" value="Much lower"><span class="check"></span>Much lower</label>
+          <label><input type="radio" name="comparison_rating" value="Don't know"><span class="check"></span>Don't know</label>
+        </div>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="form-group">
+        <label>6. How likely are you to continue using our services?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="continue_usage" value="Much higher" required><span class="check"></span>Much higher</label>
+          <label><input type="radio" name="continue_usage" value="Somewhat higher"><span class="check"></span>Somewhat higher</label>
+          <label><input type="radio" name="continue_usage" value="Same"><span class="check"></span>Same</label>
+          <label><input type="radio" name="continue_usage" value="Somewhat lower"><span class="check"></span>Somewhat lower</label>
+          <label><input type="radio" name="continue_usage" value="Much lower"><span class="check"></span>Much lower</label>
+          <label><input type="radio" name="continue_usage" value="Don't know"><span class="check"></span>Don't know</label>
+        </div>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="form-group">
+        <label>7. Have you ever recommended us to others?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="recommendation" value="No, never recommended" required><span class="check"></span>No, never recommended</label>
+          <label><input type="radio" name="recommendation" value="Have recommended once or twice"><span class="check"></span>Have recommended once or twice</label>
+          <label><input type="radio" name="recommendation" value="Have recommended several times"><span class="check"></span>Have recommended several times</label>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-group">
+        <button type="submit" class="submit-btn">Submit Feedback</button>
+      </div>
+
+    </form>
+  </div>
+
+  <script src="survey.js"></script>
+</body>
+</html>
